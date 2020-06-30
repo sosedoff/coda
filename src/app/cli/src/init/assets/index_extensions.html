@@ -30,8 +30,8 @@ add "&raw" to the end of the URL within a browser.
   <script>
     var defaultQuery = "query MyQuery { \nversion\n}";
     var serverUrl = window.location.host + window.location.pathname;
-    var httpServerUrl = "http://" + serverUrl;
-    var wsServerUrl = "ws://" + serverUrl;
+    var httpServerUrl = (window.location.protocol === "http:" ? "http://" : "https://" ) + serverUrl;
+    var wsServerUrl = (window.location.protocol === "http:" ? "ws://" : "wss://" ) + serverUrl;
 
     // Collect the URL parameters
     var parameters = {};
